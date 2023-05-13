@@ -32,5 +32,6 @@ if expected_result == actual_result:
     print("Test Passed")
 expected_result1= 'Sign in'
 actual_result1=driver.find_element(By.CSS_SELECTOR, "h1[class='a-spacing-small']").text
-if expected_result1 == actual_result1:
-    print("Test 1 passed")
+#if expected_result1 == actual_result1:
+assert expected_result1==actual_result1, f'Expected{expected_result1} but got{actual_result1}'
+  # print("Test 1 passed")
