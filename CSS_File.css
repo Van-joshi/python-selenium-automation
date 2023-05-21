@@ -1,0 +1,14 @@
+h2{
+    color: blue;
+    background-color: cornsilk;
+}
+li{
+    color: dodgerblue;
+    font-style: italic;
+    font-stretch: ultra-expanded;
+}
+h1{
+    background-color: aquamarine;
+
+    font-family: "Berlin Sans FB";
+}
