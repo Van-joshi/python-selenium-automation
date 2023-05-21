@@ -21,6 +21,6 @@ def sign_in_header(context):
 
 @then('email input field is present')
 def email_field(context):
-      expected_result1=context.driver.find_element(By.XPATH, "(//label[normalize-space()='Email or mobile phone number'])[1]").text
+      expected_result1=context.driver.find_element(By.XPATH, "//label[@for='ap_email']").text
       actual_result1= 'Email or mobile phone number'
-      assert expected_result1 ==  actual_result1, f'error! expected{expected_result1} but got actual{actual_result1}'
+      assert expected_result1 == actual_result1, f'error! expected{expected_result1} but got actual{actual_result1}'
