@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 
@@ -21,7 +22,8 @@ search.clear()
 search.send_keys('table')
 
 # wait for 4 sec
-sleep(4)
+driver.implicitly_wait(5)
+driver.wait= WebDriverWait(driver, 5)
 
 # click search button
 driver.find_element(By.NAME, 'btnK').click()

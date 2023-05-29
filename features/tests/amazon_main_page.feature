@@ -5,3 +5,4 @@ Feature: load amazon main page
     Given Open chrome
     When Open amazon url
     Then Amazon main page is open
+
