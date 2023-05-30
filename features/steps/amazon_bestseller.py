@@ -10,11 +10,13 @@ def open_Amazon(context):
 def step_impl(context):
     context.driver.find_element(By.XPATH, "//a[@href='/gp/bestsellers/?ref_=nav_cs_bestsellers']").click()
 
+
 @then('Amazon Best Sellers text is visible')
 def step_best_seller(context):
     expected_result= context.driver.find_element(By.XPATH, "//span[@id='zg_banner_text']").text
     actual_result= 'Amazon Best Sellers'
     assert expected_result == actual_result, f' error! expected{expected_result} but got actual{actual_result}'
+
 @then('New Releases text are seen')
 def step_new_release(context):
     expected_result1= context.driver.find_element(By.XPATH, "(//a[@href='/gp/new-releases/ref=zg_bs_tab'])[1]").text

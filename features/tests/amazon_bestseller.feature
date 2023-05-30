@@ -4,6 +4,7 @@ Feature: Open Amazon Bestsellers
   Scenario: Navigate to amazon main page
     Given Open amazon main pagee
     When Click on Best Sellers
+
     
     Then Amazon Best Sellers text is visible
     Then New Releases text are seen
