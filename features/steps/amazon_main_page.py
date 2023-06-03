@@ -9,7 +9,7 @@ ORDERS_BTN = (By.XPATH, "//span[normalize-space()='& Orders']")
 SEARCH_FILED = (By.ID, 'twotabsearchtextbox')
 SEARCH_BTN = (By.ID, 'nav-search-submit-button')
 FOOTER_LINKS = (By.XPATH, "//div[@class='a-divider-inner'] a")
-POPUP_SIGNIN_BTN = (By.XPATH, "//div[@id='nav-flyout-ya-signin']//span[@class='nav-action-inner'][normalize-space()='Sign in']")
+POPUP_SIGNIN_BTN = (By.CSS_SELECTOR, "div[id='nav-signin-tooltip'] span[class='nav-action-inner']")
 
 @given('Open chrome')
 def step_impl(context):
@@ -32,16 +32,15 @@ def step_main_page(context):
 
 @when('Click on Hello Sign In from popup')
 def Hello_signin(context):
- context.driver.find_element(By.ID, "nav-link-accountList").click()
- # wait = WebDriverWait(context.driver, 5)
- # context.driver.wait.until(EC.element_to_be_clickable(POPUP_SIGNIN_BTN),message='sign in not visible').click()
+    context.driver.find_element(*POPUP_SIGNIN_BTN).click()
+    #context.driver.wait.until(EC.element_to_be_clickable(POPUP_SIGNIN_BTN ).click())
 
-
-
-
- @then('Sign Inn header is visible')
- def Sign_in(context):
-    #context.driver.wait.until(EC.url_contains("https://www.amazon.com/ap/signin"))
+@then ('Sign Inn header is visible')
+def sign_in_header(context):
     expected_result = context.driver.find_element(By.XPATH, "(//h1[@class='a-spacing-small'])").text
     actual_result = 'Sign in'
     assert expected_result == actual_result, f'error! expected{expected_result} but got actual{actual_result}'
+
+ # wait = WebDriverWait(context.driver, 5)
+ # context.driver.wait.until(EC.element_to_be_clickable(POPUP_SIGNIN_BTN),message='sign in not visible').click()
+
