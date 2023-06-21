@@ -9,14 +9,20 @@ current_color1=(By.CSS_SELECTOR, "#variation_color_name .selection")
 @given('Amazon main page is open')
 def Amazon_main_page(context):
     context.driver.get("https://www.amazon.com")
-@when ('Dress is serached on Amazon')
-def serach_dress(context):
+
+
+@when ('Dress is searched on Amazon')
+def search_dress(context):
     context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('dresses')
     context.driver.find_element(By.ID, 'nav-search-submit-button').click()
+
+
 @when('User clicks on the dress')
 def Select_dress(context):
     context.driver.find_element(By.PARTIAL_LINK_TEXT, "Women's Short-Sleeve Scoop Neck Swing Dress").click()
 sleep(4)
+
+
 @then ('All color options are displayed')
 def pick_color(context):
     expected_colors=['Black', 'Navy', 'Black, dots', 'Navy/Red, Tossed Leaf/Tulips']

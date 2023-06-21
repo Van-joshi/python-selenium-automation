@@ -14,7 +14,7 @@ driver.maximize_window()
 
 # open the url
 driver.get('https://www.amazon.com/')
-# Amacon logo
+# Amazon logo
 driver.find_element(By.XPATH, "//a[@id='nav-logo-sprites']")
 # Email Field
 # driver.find_element(By.XPATH, "//a[@id='nav-link-accountList']").click()

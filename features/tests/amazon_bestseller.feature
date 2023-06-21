@@ -2,7 +2,7 @@
 Feature: Open Amazon Bestsellers
 
   Scenario: Navigate to amazon main page
-    Given Open amazon main pagee
+    Given Open amazon main page
     When Click on Best Sellers
 
     

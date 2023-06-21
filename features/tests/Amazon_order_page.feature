@@ -7,3 +7,6 @@ Feature: Go to Amazon orders sign in page
     When click on orders
     Then Sign in header is visible
     Then email input field is present
+    Then Navigate back to main page
+    Then click on shopping cart
+    Then verify cart is empty

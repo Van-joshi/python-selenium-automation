@@ -2,9 +2,8 @@
 Feature: load amazon main page
 
   Scenario: User can load Amazon main page
-    Given Open chrome
-    When Open amazon url
-    When Amazon main page is open
+
+    Given Open amazon main page
     When Click on Hello Sign In from popup
     Then Sign Inn header is visible
 
