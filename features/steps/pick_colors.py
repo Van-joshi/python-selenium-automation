@@ -4,8 +4,8 @@ from time import sleep
 
 color_options=(By.XPATH, "//div[@id='variation_color_name li']")
 current_color1=(By.CSS_SELECTOR, "#variation_color_name .selection")
-
-
+SEARCH_BOX = (By.ID, 'twotabsearchtextbox')
+SUBMIT_BTN = (By.ID, 'nav-search-submit-button')
 @given('Amazon main page is open')
 def Amazon_main_page(context):
     context.driver.get("https://www.amazon.com")

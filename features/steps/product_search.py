@@ -28,6 +28,34 @@ def click_search_icon(context):
 sleep(1)
 
 
+@when('Select department books')
+def select_department(context):
+    context.app.header.select_department()
+
+
+@when('Search for faust')
+def search_for_faust(context):
+    context.app.search_results.search_for_faust()
+
+
+@when('Select department baby')
+def select_dpt_baby(context):
+    context.app.header.select_dpt_baby()
+
+
+@when('Search for baby swing')
+def search_baby_swing(context):
+    context.app.search_results.search_baby_swing()
+
+@when('Hover over nursery')
+def hover_over_nursery(context):
+    context.app.search_results.hover_over_nursery()
+
+@then('All nursery items are seen')
+def all_items_are_seen(context):
+    context.app.search_results.all_nursery_items_are_seen()
+
+
 @then('Product results for shoes are shown')
 def verify_found_results_text(context):
     all_products=context.driver.find_elements(By.CSS_SELECTOR, '[data-component-type="s-search-result"]')
@@ -37,6 +65,11 @@ def verify_found_results_text(context):
         print("title is:"+ " "+ title)
 
 
+@then('Verify correct result is shown')
+def verify_dpt(context):
+    context.app.search_results.verify_dpt()
 
 
-
+@then('Verify baby department is shown')
+def verify_dpt_baby(context):
+    context.app.search_results.verify_dpt_baby()

@@ -1,8 +1,8 @@
 from Pages.base_page import Page
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-
-
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import Select
 class Header(Page):
     SEARCH_FILED = (By.ID, 'twotabsearchtextbox')
     SEARCH_BTN = (By.ID, 'nav-search-submit-button')
@@ -14,6 +14,9 @@ class Header(Page):
     SHOPPING_CART = (By.ID, 'nav-cart-text-container')
     SIGNIN_TEXT = (By.XPATH, "(//h1[@class='a-spacing-small'])")
     EMAIL_BOX = (By.ID, 'ap_email')
+    LANGUAGE_OPTIONS = (By.ID, 'icp-nav-flyout')
+    SPANISH_LANG = (By.CSS_SELECTOR, 'a[href="#switch-lang=es_US"]')
+    DEPT_SELECT = (By.ID, 'searchDropdownBox')
 
 
     def click_on_order(self):
@@ -33,4 +36,24 @@ class Header(Page):
 
     def click_shopping_cart(self):
         self.click(*self.SHOPPING_CART)
+
+    def hover_over_lang(self):
+        #lang_options = self.find_element(*self.LANGUAGE_OPTIONS)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(self.find_element(*self.LANGUAGE_OPTIONS))
+        actions.perform()
+
+
+    def verify_spanish_is_present(self):
+     self.wait_for_element_appear(*self.SPANISH_LANG)
+
+    def select_department(self):
+        dept_select = (self.find_element(*self.DEPT_SELECT))
+        select = Select(dept_select)
+        select.select_by_value('search-alias=stripbooks')
+
+    def select_dpt_baby(self):
+        dept_select = (self.find_element(*self.DEPT_SELECT))
+        select = Select(dept_select)
+        select.select_by_value('search-alias=baby-products')
 

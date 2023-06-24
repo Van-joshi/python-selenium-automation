@@ -11,3 +11,8 @@ Feature: Open Amazon Bestsellers
     Then Movers & Shakers text are seen
     Then Most Wished For texts are seen
     Then Gift Ideas text are seen
+
+  Scenario: Language options are present
+    Given Open amazon main page
+    When Hover over language options
+    Then Verify Spanish option is present
